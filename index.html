@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Maddi's Dashboard</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <div class="heading">
+          <h1 id="welcome-message"></h1>
+          <div class="date"><p><span id="weekday"></span>, <span id="month"></span> <span id="date"></span></p></div>
+          <div class="time"><p><span id="hour"></span>:<span id="minute"></span><span id="second"></span></p></div>
+      </div>
+      <div class="container">
+            <div class="cat-container info-card">
+                <div class="cat-photo">
+                    <img id="cat-gif">
+                </div>
+                <div class="cat-fact-container">
+                    <h2>Did you know...?</h2>
+                    <p id="cat-fact"></p>
+                </div>
+            </div>
+            <div class="weather-card info-card">
+                <div class="weather-today">
+                    <div class="information-header">
+                        <div><img id="icon" src=""></div>
+                        <div id="temperature">&deg;</div>
+                        <div id="location"></div>
+                        <div class="additional-information">
+                            <div class="add-info-elem">High: <span id="temp-high-value"></span></div>
+                            <div class="add-info-elem">Low: <span id="temp-low-value"></span></div>
+                            <div class="add-info-elem">Humidity <span id="humidity-value"></span>%</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="five-day-forecast">
+                    <h2>Five Day Forecast</h2>
+                </div>
+            </div>
+            <div class="info-card" id="news">
+                <h2>Today's top news stories:</h2>
+            </div>
+        </div>
+    <script src="script.js"></script>
+  </body>
+</html>

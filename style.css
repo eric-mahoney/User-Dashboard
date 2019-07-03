@@ -1,0 +1,158 @@
+/* DEFAULT */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 1% 5%;
+    background-color: #153131;
+}
+
+/* HEADING WITH TIME & DATE */
+
+.heading {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    color: white;
+}
+
+.time, .date {
+    margin: 0%;
+    padding: 0%;
+    font-size: 25px;
+}
+
+/* CONTAINER CSS */
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+.info-card {
+    padding: 1%;
+    width: 25%;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 2%;
+}
+
+/* CAT CARD CSS */
+.cat-fact-container {width: 100%;}
+.cat-container {background-color: #45CB85;}
+.cat-photo img {width: 80%; border-radius: 2%; border: 2px solid black;}
+
+/* WEATHER CARD CSS */
+.weather-card {
+    background-color: #6A7FDB; padding:0%;}
+#icon {width: 40%;}
+#temperature {font-size: 3em; font-weight: bold;}
+#location {font-size: 1.5em;color: #2f2f2f;}
+.information-header {
+    position: relative;
+    margin: 10% 0%;
+    padding: 5% 0%;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.additional-information {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 10% auto 0% auto;
+}
+
+/* FIVE DAY FORECAST */
+
+.forecast-card {
+    position: relative;
+    height: 50px;
+    display: flex;
+    padding: 2%;
+    justify-content: space-around;
+    flex-direction: inline;
+    align-items: center;
+}
+
+.forecast-card:hover {
+    background-color: #7d95ff;
+}
+
+.forecast-day {
+    position: absolute;
+    left: 5%;
+}
+
+.forecast-icon {
+    position: absolute;
+    left: 40%;
+}
+
+.forecast-max-temp {
+    position: absolute;
+    left: 75%;
+}
+
+.forecast-min-temp {
+    position: absolute;
+    left: 90%;
+}
+
+/* NEWS CARD CSS */
+
+#news {
+    background-color: #E08DAC;
+    overflow-y:scroll;
+}
+
+#news::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #E08DAC;
+}
+
+#news::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #E08DAC;
+}
+
+#news::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #b16f87;
+}
+
+.news-info {
+    width: 100%;
+    height: 10%;
+    border-radius: 2%;
+}
+.news-info:hover {
+    background-color: #ffa8c9;
+}
+
+.news-image {
+    width: 30%;
+    float: right;
+    border-radius: 10% 10% 10% 10%;
+    margin-left: 10%;
+}
+
+.news-image img {
+    height: auto;
+    width: auto;
+    max-width: 30%;
+    max-height: 20%;
+}
+
+.news-title {
+    font-size: 15px;
+}
+.news-title a {
+    text-decoration: none;
+    color: black;
+}
