@@ -1,5 +1,5 @@
 window.onload = function() {
-    let set_time = function(){
+    let setTime = function(){
         let time = new Date();
         let hour = {
             'value': time.getHours(),
@@ -48,10 +48,10 @@ window.onload = function() {
         return date;
 
     }
-    set_time();
-    //let refresh_clock = window.setInterval(set_time, 60000);
+    setTime();
+    //let refresh_clock = window.setInterval(setTime, 60000);
 
-    let get_cat = function(){
+    let getCat = function(){
         let key = '70ae4269-d2cf-4377-aa3b-7b2540617761';
         let api = 'https://api.thecatapi.com/v1/images/search';
         fetch(api)
@@ -62,9 +62,9 @@ window.onload = function() {
                 document.getElementById('cat-gif').src = JSONresponse[0].url;
             })
     }
-    get_cat();
+    getCat();
     
-    let cat_fact = function(){
+    let catFact = function(){
         let fact = 'https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1';
         fetch(fact)
             .then(function(fact_response){
@@ -74,19 +74,19 @@ window.onload = function() {
                 document.getElementById('cat-fact').innerHTML = JSONresponse.text;
             })
     }
-    cat_fact();
+    catFact();
 
-    let get_weather = function(){
-        let get_location = function(){
+    let getWeather = function(){
+        let getLocation = function(){
             if(navigator.geolocation){
                 navigator.geolocation.getCurrentPosition(function(position){
-                    call_weather(position.coords.latitude, position.coords.longitude);
+                    callWeather(position.coords.latitude, position.coords.longitude);
                 });
             }
         }
-        get_location()
+        getLocation()
         
-        let call_weather = function(latitude,longitude){
+        let callWeather = function(latitude,longitude){
             console.log(latitude);
             console.log(longitude);
             let weather_call = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=b02825401afe8e67744e41e265592144&units=imperial`;
@@ -103,12 +103,12 @@ window.onload = function() {
                     let high = weather_obj.main.temp_max;
                     let low = weather_obj.main.temp_min;
                     let humidity = weather_obj.main.humidity;
-                    update_weather(icon,temp,name,high,low,humidity);
-                    get_forecast(latitude,longitude);
+                    updateWeather(icon,temp,name,high,low,humidity);
+                    getForecast(latitude,longitude);
                 })
         }
 
-        let update_weather = function(icon,temp,name,high,low,humidity){
+        let updateWeather = function(icon,temp,name,high,low,humidity){
             document.getElementById('location').innerHTML = name;
             document.getElementById('icon').src = "http://openweathermap.org/img/w/" + icon + ".png";
             document.getElementById('temperature').innerHTML = Math.floor(temp);
@@ -117,7 +117,7 @@ window.onload = function() {
             document.getElementById('humidity-value').innerHTML = humidity;
         }
 
-        function get_forecast(latitude,longitude){
+        function getForecast(latitude,longitude){
             let forecast_call = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&APPID=b02825401afe8e67744e41e265592144&units=imperial`;
             fetch(forecast_call)
                 .then(function(forecast_response){
@@ -139,15 +139,15 @@ window.onload = function() {
                         temp_max_div.className = "forecast-max-temp";
                         temp_min_div.className = "forecast-min-temp";
                         temp_icon_div.className = "forecast-icon";
-                        current_day = set_time().day_raw + j + 1;
+                        current_day = setTime().day_raw + j + 1;
 
                         // fixes index errors by resetting the current_day in the for loop back to the beginning
                         if(current_day >= 7){
                             current_day = current_day - 7;
                         }
                         console.log('the current numeric day is: ' + current_day);
-                        console.log('the day from the array is: ' + set_time().days[current_day]);
-                        day_div.innerHTML = set_time().days[current_day];
+                        console.log('the day from the array is: ' + setTime().days[current_day]);
+                        day_div.innerHTML = setTime().days[current_day];
                         temp_max_div.innerHTML = Math.floor(forecast_obj.list[j].main.temp_max);
                         temp_min_div.innerHTML = Math.floor(forecast_obj.list[j].main.temp_min);
                         temp_icon_div.appendChild(temp_icon_pic);
@@ -163,9 +163,9 @@ window.onload = function() {
                 })
         }
     }
-    get_weather()
+    getWeather()
     
-    let get_news = function(){
+    let getNews = function(){
 
             var url = 'https://newsapi.org/v2/top-headlines?' +
             'sources=bbc-news&' +
@@ -215,5 +215,5 @@ window.onload = function() {
                     }
                 });
     }
-    get_news();
+    getNews();
 }
